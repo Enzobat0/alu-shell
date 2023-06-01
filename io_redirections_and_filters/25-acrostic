@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -sd '' < <(cut -c1 input.txt) 
+echo $(cut -c 1 | tr -d "\n") 
