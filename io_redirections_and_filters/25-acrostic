@@ -1,2 +1,2 @@
 #!/bin/bash
-while read -r line do printf '%s' "${line:0:1}" done
+tr -s '\n' ' ' < input.txt | grep -oP '\b\w' | tr -d '\n' 
