@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$input" | tr 'Az' 'Ze'
+tr 'Az' 'Ze'
