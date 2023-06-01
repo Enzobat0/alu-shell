@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -s '\n' ' ' < input.txt | grep -oP '\b\w' | tr -d '\n' 
+paste -sd '' < <(cut -c1 input.txt) 
