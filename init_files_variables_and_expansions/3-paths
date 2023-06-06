@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(find "$1" -type d -print | wc -l)
+echo "$PATH" | tr ':' '\n' | wc -l
