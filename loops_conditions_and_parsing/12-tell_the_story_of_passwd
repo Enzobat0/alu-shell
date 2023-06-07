@@ -5,7 +5,7 @@ exec 3< /etc/passwd
 while IFS=":" read -r username _ uid gid _ home shell
 do
     # Retrieve additional information from /etc/passwd file
-    info=$(grep -w "$username" /etc/passwd | cut -d: -f5)
+    info=$(getent passwd "$username" | cut -d: -f5)
 
     # Retrieve the password from /etc/shadow file
     password=$(grep -w "$username" /etc/shadow | cut -d: -f2)
