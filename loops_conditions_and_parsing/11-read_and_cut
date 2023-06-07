@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Open the /etc/passwd file for reading
+exec 3< /etc/passwd
+
+while IFS=":" read -r username _ uid _ home _
+do
+    echo "Username: $username"
+    echo "User ID: $uid"
+    echo "Home Directory: $home"
+    echo
+done <&3
+
+# Close the file descriptor
+exec 3<&-
