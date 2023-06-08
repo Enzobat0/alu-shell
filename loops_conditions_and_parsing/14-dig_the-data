@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
-#groups visistors by IP and HTTp
-
-log_file="apache-access.log"
-
-# Use awk to group visitors by IP and HTTP status code, count occurrences, and print the data
+#groups visistors by IP and HTT Use awk to group visitors by IP and HTTP status code, count occurrences, and print the data
 awk ' {print $1,$9}' apache-access.log | sort |	uniq -c | sort -rn
