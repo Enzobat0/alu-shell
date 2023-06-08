@@ -4,4 +4,4 @@
 log_file="apache-access.log"
 
 # Use awk to group visitors by IP and HTTP status code, count occurrences, and print the data
-awk '{arr[$1" "$9]++} END {for (ip in arr) { printf "%-5s%s\n", arr[ip], ip }}' "$log_file"
+awk '{arr[$1" "$2]+=$3} END {for (ip in arr) { printf "%5s %s\n", arr[ip], ip }}' "$log_file" | sort -nr
