@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#give the pid of the this file
+pid=$$
+echo $pid
