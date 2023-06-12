@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#show asdfjalf
+ps_output=$(ps axo pid,ppid,user,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest)
+
+# Display the formatted output
+echo "$ps_output"
