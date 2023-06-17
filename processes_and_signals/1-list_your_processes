@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-#show asdfjalf
-ps_output=$(ps -eo pid,stat,time,command)
+#show asdfjal
+ps_output=$(ps -eo pid)
 
 # Display the formatted output
 echo "$ps_output"
