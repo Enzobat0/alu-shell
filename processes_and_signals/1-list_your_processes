@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
-#show asdfjal
-ps_output=$(ps -eo pid)
-
-# Display the formatted output
-echo "$ps_output"
+#show pid of this 
+ps -auxf
