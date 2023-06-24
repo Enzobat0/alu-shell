@@ -42,4 +42,4 @@ done
 cleanup(){
 	rm /var/run/myscript.pid
 }
-cleanup
+trap cleanup EXIT
