@@ -5,6 +5,24 @@
 #creates /var/run/myscript.pid containing its pid
 echo $$ > /var/run/myscript.pid
 
+#diplays to I hate to kill command
+sigterm_handler(){
+        echo "I hate the kill command"
+	exit 0
+}       
+
+
+
+#displays Y U NO LOVE ME 
+sigint_handler(){
+        echo "Y U no love me?!"
+}
+
+#register the signal handlder functions
+trap sigterm_handler SIGTERM
+trap sigint_handler SIGINT
+
+
 #Displays to infinity and beyond indefinetely
 while :
 do
@@ -12,20 +30,8 @@ do
 	sleep 2
 done
 
-#diplays to I hate to kill command 
-i=0
-while [ $i -le 11 ]:
-do
-	trap "echo I hate the kill command" SIGTERM
-done
 
-#displays Y U NO LOVE ME 
-i=0
-while [ $i -le 2 ]:
-do
-	trap "echo Y U no love me?!" SIGINT
-done
 
 #last directives
 rm /var/run/myscript.pid
-kill "$(pgrep -f ./10-process_and_pid_file)"
+exit 0
