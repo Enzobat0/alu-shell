@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#do all in the instructions
+
+
+#creates /var/run/myscript.pid containing its pid
+echo $$ > /var/run/myscript.pid
+
+#Displays to infinity and beyond indefinetely
+while:
+do 
+	echo "To infinity and beyond"
+	sleep 2
+done
+
+#diplays to I hate to kill command 
+i=0
+while [ $i -le 11 ]:
+do
+	trap "echo I hate the kill command" SIGTERM
+done
+
+#displays Y U NO LOVE ME 
+i=0
+while [ $i -le 2 ]:
+do
+	trap "echo Y U no love me?!" SIGINT
+done
+
+#last directives
+rm /var/run/myscript.pid
+kill "$(pgrep -f ./10-process_and_pid_file)"
