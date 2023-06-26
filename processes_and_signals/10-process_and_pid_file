@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 #do all in the instructions
+#last directives
+cleanup(){
+        rm /var/run/myscript.pid
+        exit 0
+}
 
 
 #creates /var/run/myscript.pid containing its pid
@@ -17,12 +22,4 @@ do
 	echo "To infinity and beyond"
 	sleep 2
 done
-
-
-
-#last directives
-cleanup(){
-	rm /var/run/myscript.pid
-	exit 0
-}
 
