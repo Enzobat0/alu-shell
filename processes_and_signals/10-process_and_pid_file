@@ -7,15 +7,12 @@ cleanup(){
 }
 
 
-#creates /var/run/myscript.pid containing its pid
-echo $$ > /var/run/myscript.pid
-
-
 #register the signal handlder functions
 trap "echo 'I hate the kill command' && killer" SIGTERM
 trap "echo 'Y U no love me?!'" SIGINT
 trap "killer" SIGQUIT
-
+#creates /var/run/myscript.pid containing its pid
+echo $$ > /var/run/myscript.pid
 #Displays to infinity and beyond indefinetely
 while :
 do
