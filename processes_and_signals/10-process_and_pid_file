@@ -5,29 +5,11 @@
 #creates /var/run/myscript.pid containing its pid
 echo $$ > /var/run/myscript.pid
 
-#diplays to I hate to kill command
-sigterm_handler(){
-        echo "I hate the kill command"
-	cleanup
-	exit 0
-}       
-
-
-
-#displays Y U NO LOVE ME 
-sigint_handler(){
-        echo "Y U no love me?!"
-}
-
-sigquit_handler(){
-	cleanup
-	exit 0
-}
 
 #register the signal handlder functions
-trap sigterm_handler SIGTERM
-trap sigint_handler SIGINT
-trap sigquit_handler SIGQUIT
+trap "echo 'I hate the kill command' && killer" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "killer" SIGQUIT
 
 #Displays to infinity and beyond indefinetely
 while :
@@ -41,5 +23,6 @@ done
 #last directives
 cleanup(){
 	rm /var/run/myscript.pid
+	exit 0
 }
-trap cleanup EXIT
+
