@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#last project this one is managing manage_my_process
+
+cleanup(){
+	kill "$(pgrep -f /manage_my_process)"
+	rm -f /var/run/my_process.pid &
+}
+
+if [[ "$1" == "start" ]]
+then 
+	./manage_my_process &
+	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process started"
+elif [[ "$!" == "stop" ]]
+then 
+	cleanup; echo "manage_my_process stopped"
+elif [[ "$!" == "restart" ]]
+then 
+	cleanup; ./manage_my_process &
+       	echo "$!" > /var/run/my_process.pid
+	echo "manage_my_process restarted"
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
