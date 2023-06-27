@@ -11,10 +11,10 @@ then
 	./manage_my_process &
 	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process started"
-elif [[ "$!" == "stop" ]]
+elif [[ "$1" == "stop" ]]
 then 
 	cleanup; echo "manage_my_process stopped"
-elif [[ "$!" == "restart" ]]
+elif [[ "$1" == "restart" ]]
 then 
 	cleanup; ./manage_my_process &
        	echo "$!" > /var/run/my_process.pid
