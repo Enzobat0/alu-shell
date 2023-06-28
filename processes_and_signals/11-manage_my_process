@@ -2,7 +2,7 @@
 #last project this one is managing manage_my_process
 
 cleanup(){
-	kill "$(pgrep -f /manage_my_process)"
+	pkill manage_my_process
 	rm -f /var/run/my_process.pid &
 }
 
