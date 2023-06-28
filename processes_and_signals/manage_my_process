@@ -9,5 +9,4 @@ amlive(){
 		sleep 2
 	done
 }
-
-
+amlive
